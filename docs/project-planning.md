@@ -5,9 +5,18 @@ The customer will be involved in the developemtn process afer an intial applicat
 It's important to incorporate the end user or customer because they have the experience on what works or doesn't work.  More than likely, they have already used several applications similar to this and will know exactly what worked and didn't work.  And on what did not work or appealing to the customer, can be implemented into this application.<br><br>
 A technique for obtaining user feedback would be looking for local businesses with something similar already in use, and offering a free trial and feedback.  This will allow real world data and implemetation also while allowing some leeway on functionality. 
 * Define Your Audience <br>
-
+My audience will be small business owners who own businesses that require appointments.  It will be people who provide services such as photography, or venues that clients can book sessions with. 
 * Outline the content of the application <br>
-
+    - What do I want on each page?
+    - Waht do I want the Functionality of each page to be?
+    - What is the purpose of my appliation?
+    - What business problem or real world problem and I going to be solving?
+    - Define the attributes of your website
+        - Color Palette
+        - Images
+        - Fonts
+        - Logos
+        - Navigation
 * Create and provide link to [User Store Map](www.google.com) in Mural<br>
 
 * Research the Following
