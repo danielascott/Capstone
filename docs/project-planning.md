@@ -8,14 +8,21 @@ A technique for obtaining user feedback would be looking for local businesses wi
 My audience will be small business owners who own businesses that require appointments.  It will be people who provide services such as photography, or venues that clients can book sessions with. 
 * Outline the content of the application <br>
     - What do I want on each page?
+    What I want on each page is a clear and easy vision of what that page is there for.
     - Waht do I want the Functionality of each page to be?
+    The Functionality of each page should be simple and easily navigated. With a clear and simple menu to navigate to other pages, and a large header to show what the current page youre on is. 
     - What is the purpose of my appliation?
+    The purpose of my application is to provide businesses that offer services by appointments.  It will display avilable timeslots for customers to choose from.
     - What business problem or real world problem and I going to be solving?
+    A problem I will be solving is providing a simple booking app per calender view that will be simple to embed into an existing website. 
     - Define the attributes of your website
-        - Color Palette
-        - Images
-        - Fonts
-        - Logos
+        - Color Palette <br>
+        Color palette is linked [Here](https://coolors.co/5d0462-40798c-dddbcb)
+        - Images/Logo<br>
+        ![Image](https://github.com/danielascott/Capstone/blob/development/docs/Calendar%20Meets-logos.jpeg)
+        - Fonts<br>
+        For body and menu will be: Open Sans<br>
+        For header will be: Noto Serif Balinese
         - Navigation
 * Create and provide link to [User Store Map](www.google.com) in Mural<br>
 
