@@ -1,0 +1,16 @@
+body {
+    background-color: #25cfdb;
+    margin: 0%;
+    align-content: center;
+}
+
+h1 {
+    text-align: center;
+    text-decoration: underline;
+}
+
+footer {
+    text-align: center;
+    background-color: orange;
+    font-weight: bold;
+}
