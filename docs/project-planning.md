@@ -17,23 +17,29 @@ My audience will be small business owners who own businesses that require appoin
     A problem I will be solving is providing a simple booking app per calender view that will be simple to embed into an existing website. 
     - Define the attributes of your website
         - Color Palette <br>
-        Color palette is linked [Here](https://coolors.co/5d0462-40798c-dddbcb)
+        Color palette is linked [Here](https://coolors.co/palette/5d0462-5065a8-f2eee3)
         - Images/Logo<br>
         ![Image](https://github.com/danielascott/Capstone/blob/development/docs/Calendar%20Meets-logos.jpeg)
         - Fonts<br>
         For body and menu will be: Open Sans<br>
         For header will be: Noto Serif Balinese
-        - Navigation
-* Create and provide link to [User Store Map](www.google.com) in Mural<br>
+        - Navigation<br>
+        Navigation will be through a Menu on the top right side of the screen.  You will navigate the menu per a hamburger model. 
+* Create and provide link to [User Store Map](https://app.mural.co/t/danielsworkspace0642/m/danielsworkspace0642/1699581774496/1718ea3ac31353af49c509bcd88f93cc120c3013?sender=uab3fc70a79e11dff1b215306) in Mural<br>
 
 * Research the Following
     - List applications Researched (links to websites)
+    1. https://www.squarespace.com/scheduling
+    2. https://bookings.zoho.com/
     - List what you like about each site
+    1. This site offered Invoices for different revenues, and trial period. More of a minimalist look.
+    2. This site offers Different types of services and you can add staff members for different purposes. 
     - List waht you do not like about each site
+    1. Some of the options seem too much for a small business. Can be complicated with APIs and Integrations. 
+    2. Can be more complex and offer too much for a small business based on what is being paid.  Paying for a premium that will not be used. 
     - How my application will be different<br>
+    My application will be a more simple layout and navigation.  There will be an option to create times and date available from a simple dropdown menu.  It will offer similar options, but being free will give small businesses just starting out one less expense. 
 
-* Create wireframes and provide link for each page (minimum of 4-5 pages) including Home, About Me, Contact Us and 1-2 other pages demonstrating the specific functionality of your capstone's purpose<br>
+* [Link for User Flow Diagram](https://app.diagrams.net/#G1HgslM-EOn_W8loLMq9ovEwZbghx3v1D5)
 
-* Create and provide link to User Flow Diagram
-
-* Create and provide link to [Swot Analysis](https://docs.google.com/document/d/1K5ix6TZr2l2LnPKNnVj8PRzfkQoVlEwFBbynrA5aj44/edit)<br>
+* Create and provide link to [Swot Analysis](https://docs.google.com/document/d/1qOhW41exKGIZNvAA70RqV_UN5guXCqsMsJac5P5AoKo/edit?usp=sharing)<br>
