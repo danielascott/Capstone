@@ -9,19 +9,6 @@ h1 {
     text-decoration: underline;
 }
 
-footer {
-    text-align: left;
-    background-color: #f2eee3;
-    font-weight: bold;
-}
-
-@media (max-width: 768px) {
-    .column {
-        width: 100%;
-        float: none;
-    }
-}
-
 #logo {
     text-align: center;
     height: 300px;
@@ -57,4 +44,12 @@ footer {
 
 .dropdown:hover .dropdown-content {
     display: block;
+}
+
+footer {
+    text-align: center;
+    background-color: #f2eee3;
+    font-weight: bold;
+    bottom: 0;
+    position: absolute;
 }
