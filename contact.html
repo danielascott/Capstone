@@ -14,18 +14,35 @@
     <div id="logo">
         <header>
             <img src="images/Calendar-Meets.jpeg" height="400" width="400">
-            <h3>Contact</h3>
         </header>
     </div>
+
+        <h3 style="color: #5D0462">Contact</h3>
 
     <div class="dropdown">
         <button class="dropdown-button">Menu</button>
         <div class="dropdown-content">
-            <a href="#">Home</a>
-            <a href="#">Application</a>
+            <a href="index.html">Home</a>
+            <a href="application.html">Application</a>
             <a href="about.html">About</a>
             <a href="contact.html">Contact</a>
         </div>
+    </div>
+
+    <div id="contact">
+        <!-- modify this form HTML and place wherever you want your form -->
+        <form action="https://formspree.io/f/xpzgvopk" method="POST">
+            <label>
+                Your email:
+                <input type="email" name="email">
+            </label>
+            <label>
+                Your message:
+                <textarea name="message"></textarea>
+            </label>
+            <!-- your other form fields go here -->
+            <button type="submit">Send</button>
+        </form>
     </div>
 
     <footer>
