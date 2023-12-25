@@ -1,4 +1,5 @@
 export default {
     header: "Calendar Meets",
-    view: "Application"
+    view: "Application",
+    application: []
 };

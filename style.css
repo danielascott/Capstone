@@ -61,3 +61,21 @@ footer {
 
 @media only screen and (max-width: 768px) {
 }
+
+#application {
+    text-align: center;
+    margin: 0 auto;
+    width: 50%;
+    color: #5d0462;
+    padding: 10px;
+    background-color: #f2eee3;
+}
+
+#about {
+    text-align: center;
+    margin: 0 auto;
+    width: 50%;
+    color: #5d0462;
+    padding: 10px;
+    background-color: #f2eee3;
+}
