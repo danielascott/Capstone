@@ -45,7 +45,7 @@ router.hooks({
             // Added in Lesson 7.1
       case "Application":
         axios
-          .get(`${process.env.WEATHER_HOLIDAY_API}/application`)
+          .get(`${process.env.PUBLIC_HOLIDAY_API}/application`)
           .then(response => {
             store.Application.app = response.data;
             done();
