@@ -1,9 +1,10 @@
 import html from "html-literal";
 
 export default () => html`  
+<div id="p">
+<p>Use this contact form to reach out for any questions or concerns</p>
     <div id="contact">
-        <!-- modify this form HTML and place wherever you want your form -->
-        <form action="https://formspree.io/f/xpzgvopk" method="POST">
+                <form action="https://formspree.io/f/xpzgvopk" method="POST">
             <label>
                 Your email:
                 <input type="email" name="email">
@@ -12,8 +13,8 @@ export default () => html`
                 Your message:
                 <textarea name="message"></textarea>
             </label>
-            <!-- your other form fields go here -->
             <button type="submit">Send</button>
         </form>
+
     </div>
 `

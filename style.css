@@ -4,8 +4,9 @@ body {
     align-content: center;
 }
 
-h3 {
+#h2 {
     text-align: center;
+    color: #5d0462;
 }
 
 #logo {
@@ -13,9 +14,16 @@ h3 {
     height: 300px;
 }
 
-#contact{
+#p {
     text-align: center;
-    color: #5065a8;
+    color: #5d0462;
+}
+
+#contact{
+    color: #5d0462;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .dropdown {
@@ -55,19 +63,30 @@ footer {
     text-align: center;
     background-color: #f2eee3;
     font-weight: bold;
+    position: fixed;
     bottom: 0;
-    position: absolute;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 @media only screen and (max-width: 768px) {
 }
 
 #application {
-    text-align: center;
-    margin: 0 auto;
-    width: 50%;
-    color: #5d0462;
-    padding: 10px;
+    display: flex;
+}
+
+.left-column {
+    flex: 0.8;
+    padding: 20px;
+    background-color: #f2eee3;
+}
+
+.right-column {
+    flex: 0.2;
+    padding: 20px;
     background-color: #f2eee3;
 }
 
