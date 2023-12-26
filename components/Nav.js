@@ -1,15 +1,22 @@
-import html from "html-literal";
+import Navigo from 'navigo';
+import html from 'html-literal';
 
-export default (links) => html`
-  <nav>
-    <i class="fas fa-bars"></i>
-    <ul class="hidden--mobile nav-links">
-      ${links
-        .map(
-          link =>
-            `<li><a href="/${link.title}" title="${link.title}" data-navigo>${link.text}</a></li>`
-        )
-        .join("")}
-    </ul>
-  </nav>
+const router = new Navigo('/');
+
+const links = {
+  home: { title: 'Home' },
+  about: { title: 'About' },
+  contact: { title: 'Contact' },
+  application: { title: 'Application' },
+};
+
+export default () => html`
+    <div class="dropdown">
+        <button class="dropdown-button">Menu</button>
+        <div class="dropdown-content">
+            ${Object.keys(links).map(link => 
+                `<a href="/${link}" data-navigo>${links[link].title}</a>`
+            ).join('')}
+        </div>
+    </div>
 `;
