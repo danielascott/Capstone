@@ -6,7 +6,9 @@ export default () => html`
         <p>Use this application to schedule appointments</p>
     </div>
     <div class="right-column">
-        <p>Use this application to schedule appointments</p>
+    <h3>
+    Public holidays are:
+    </h3>
     </div>
 </div>
 `
