@@ -76,12 +76,14 @@ footer {
 
 #application {
     display: flex;
+    color: #5d0462
 }
 
 .left-column {
     flex: 0.8;
     padding: 20px;
     background-color: #f2eee3;
+    text-align: center;
 }
 
 .right-column {

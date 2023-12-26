@@ -39,15 +39,14 @@ router
 router.hooks({
   before: (done, params) => {
     const view = params && params.data && params.data.view ? capitalize(params.data.view) : "Home";
-
+    
     // Add a switch case statement to handle multiple routes
     switch (view) {
-            // Added in Lesson 7.1
-      case "Application":
+      case "Pizza":
         axios
-          .get(`${process.env.PUBLIC_HOLIDAY_API}/application`)
+          .get(`${process.env.PIZZA_PLACE_API_URL}/pizzas`)
           .then(response => {
-            store.Application.app = response.data;
+            store.Pizza.pizzas = response.data;
             done();
           })
           .catch((error) => {
@@ -65,7 +64,6 @@ router.hooks({
     render(store[view]);
   }
 });
-
 router
 .on({
   "/": () => render(),
