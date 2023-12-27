@@ -44,9 +44,9 @@ router.hooks({
     switch (view) {
       case "Application":
         axios
-          .get(`${process.env.PIZZA_PLACE_API_URL}/pizzas`)
+          .get(`${process.env.PUBLIC_HOLIDAY_API}/application`)
           .then(response => {
-            store.Pizza.pizzas = response.data;
+            store.Application.application = response.data;
             done();
           })
           .catch((error) => {
@@ -59,7 +59,7 @@ router.hooks({
     }
   },
   already: (params) => {
-    const view = params && params.data && params.data.view ? capitalize(params.data.view) : "Home";
+    const view = params && params.data && params.data.view ? capitalize(params.data.view) : "Application";
 
     render(store[view]);
   }
