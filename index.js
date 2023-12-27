@@ -42,7 +42,7 @@ router.hooks({
     
     // Add a switch case statement to handle multiple routes
     switch (view) {
-      case "Pizza":
+      case "Application":
         axios
           .get(`${process.env.PIZZA_PLACE_API_URL}/pizzas`)
           .then(response => {
