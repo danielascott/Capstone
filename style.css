@@ -9,6 +9,11 @@ body {
     color: #5d0462;
 }
 
+h1 {
+    text-align: center;
+    color: #5065a8;
+}
+
 #logo {
     text-align: center;
     height: 300px;
@@ -100,3 +105,19 @@ footer {
     padding: 10px;
     background-color: #f2eee3;
 }
+
+.calendar {
+    border-collapse: collapse;
+    width: 100%;
+
+}
+
+
+td {
+    width: 50px;
+    height: 80px;
+    text-align: center;
+    vertical-align: middle;
+    border: 1px solid #5d0462;
+    font-size: 18px;
+  }
