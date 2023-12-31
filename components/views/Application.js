@@ -70,6 +70,7 @@ export default () => html`
     <div class="right-column">
     <h3>
     Public holidays are:
+    
     </h3>
     <h4>
         api
