@@ -1,1 +1,2 @@
-export { default as Meets } from "./Calendar-Meets.jpeg"
+export { default as Meets } from "./Calendar-Meets";
+
