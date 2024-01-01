@@ -44,7 +44,7 @@ router.hooks({
     switch (view) {
       case "Application":
         axios
-          .get(`${process.env.PUBLIC_HOLIDAY_API}/application`)
+          .get(`https://date.nager.at/api/v3/publicholidays/2023/AT${process.env.PUBLIC_HOLIDAY_API}/application`)
           .then(response => {
             store.Application.application = response.data;
             done();
