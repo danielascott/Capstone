@@ -1,6 +1,6 @@
 import html from "html-literal";
 
-export default () => html`  
+export default (state) => html`  
 <div id="application">
     <div class="left-column">
         <h4>Use this application to schedule appointments</h4>
@@ -69,11 +69,20 @@ export default () => html`
     </div>
     <div class="right-column">
     <h3>
-    Public holidays are:
     </h3>
     <h4>
     The weather in ${state.weather.city} is ${state.weather.description}. Temperature is ${state.weather.temp}F, and it feels like ${state.weather.feelsLike}F.
     </h4>
-    </div>
+    <h4>
+    Public holidays are:
+${state.holidays
+  .map(holiday => {
+    return `<tr><td>${pizza.crust}</td><td>${pizza.cheese}</td><td>${
+      pizza.sauce
+    }</td><td>${pizza.toppings.join(" & ")}</td><td>${pizza.customer}</td></tr>`;
+  })
+  .join("")}
+    </h4>
+</div>
 </div>
 `
