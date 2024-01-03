@@ -1,6 +1,6 @@
 export default {
-    header: "Calendar Meets",
-    view: "Application",
-    weather: {},
-    holidays: [],
+  header: "Calendar Meets",
+  view: "Application",
+  weather: {},
+  holidays: [],
 };
