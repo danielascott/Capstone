@@ -75,15 +75,6 @@ export default (state) => html`
       </h4>
       <h4>
         Public holidays are:
-        ${state.holidays
-          .map((holiday) => {
-            return `<tr><td>${pizza.crust}</td><td>${pizza.cheese}</td><td>${
-              pizza.sauce
-            }</td><td>${pizza.toppings.join(" & ")}</td><td>${
-              pizza.customer
-            }</td></tr>`;
-          })
-          .join("")}
       </h4>
     </div>
   </div>
