@@ -1,4 +1,4 @@
 export default {
-    header: "My Viewnotfound Page",
-    view: "Viewnotfound"
+  header: "My Viewnotfound Page",
+  view: "Viewnotfound",
 };
