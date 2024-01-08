@@ -15,6 +15,8 @@ function render(state = store.Home) {
   `;
 
   router.updatePageLinks();
+
+  // addEventListeners(st);
 }
 
 // add menu toggle to bars icon in nav bar
@@ -34,7 +36,7 @@ router.hooks({
       case "Application":
         await axios
           .get(
-            `https://api.openweathermap.org/data/2.5/weather?appid=${process.env.OPEN_WEATHER_MAP_API_KEY}&q=st%20louis`
+            `https://api.openweathermap.org/data/2.5/weather?appid=${process.env.OPEN_WEATHER_MAP_API_KEY}&q=floresville`
           )
           .then((response) => {
             const kelvinToFahrenheit = (kelvinTemp) =>
@@ -53,7 +55,10 @@ router.hooks({
         await axios
           .get(process.env.PUBLIC_HOLIDAY_API)
           .then((response) => {
-            store.Application.holidays = response;
+            store.Application.holidays = {
+              date: response.data.date,
+              name: response.data.name,
+            };
           })
           .catch((err) => {
             console.log(err);
