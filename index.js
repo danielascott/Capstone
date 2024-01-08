@@ -55,7 +55,10 @@ router.hooks({
         await axios
           .get(process.env.PUBLIC_HOLIDAY_API)
           .then((response) => {
-            store.Application.holidays = response;
+            store.Application.holidays = {
+              date: response.data.date,
+              name: response.data.name,
+            };
           })
           .catch((err) => {
             console.log(err);

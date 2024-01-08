@@ -1,70 +1,49 @@
 import html from "html-literal";
 
+const defaultStartDate = new Date();
+const defaultEndDate = new Date();
+defaultEndDate.setHours(defaultStartDate.getHours() + 1);
+
 export default (state) => html`
   <div id="application">
     <div class="left-column">
       <h4>Use this application to schedule appointments</h4>
-      <table border="1" class="calendar">
-        <tr>
-          <th colspan="7">January 2024</th>
-        </tr>
+      <section id="schedule">
+        <form id="schedule-form" method="POST" action="">
+          <h2>Create an Appointment</h2>
+          <div>
+              <input
+                type="text"
+                name="customer"
+                id="customer"
+                placeholder="Appointment Title"
+                style="color: #5d0462;"
+              />
+            </div>
+            <div>
+              <input
+                id="start"
+                name="start"
+                type="datetime-local"
+                value="${defaultStartDate.toJSON().substring(0, 16)}"
+                style="color: #5d0462;"
+              />
+            </div>
+            <div>
+              <input
+                id="end"
+                name="end"
+                type="datetime-local"
+                value="${defaultEndDate.toJSON().substring(0, 16)}"
+                style="color: #5d0462;"
+            />
+          </div>
 
-        <tr>
-          <th>Su</th>
-          <th>Mo</th>
-          <th>Tu</th>
-          <th>We</th>
-          <th>Th</th>
-          <th>Fr</th>
-          <th>Sa</th>
-        </tr>
-
-        <tr>
-          <td>1</td>
-          <td>2</td>
-          <td>3</td>
-          <td>4</td>
-          <td>5</td>
-          <td>6</td>
-          <td>7</td>
-        </tr>
-
-        <tr>
-          <td>8</td>
-          <td>9</td>
-          <td>10</td>
-          <td>11</td>
-          <td>12</td>
-          <td>13</td>
-          <td>14</td>
-        </tr>
-
-        <tr>
-          <td>15</td>
-          <td>16</td>
-          <td>17</td>
-          <td>18</td>
-          <td>19</td>
-          <td>20</td>
-          <td>21</td>
-        </tr>
-
-        <tr>
-          <td>22</td>
-          <td>23</td>
-          <td>24</td>
-          <td>25</td>
-          <td>26</td>
-          <td>27</td>
-          <td>28</td>
-        </tr>
-
-        <tr>
-          <td>29</td>
-          <td>30</td>
-          <td>31</td>
-        </tr>
-      </table>
+          <input type="submit" name="submit" value="Schedule" />
+        </form>
+      </section>
+      <h4>
+        All appointments are scheduled in Central Standard Time (CST). All open appointments are Tuesday through Friday, 9am to 5pm. And Thursday evenings, 6pm to 8pm.
     </div>
     <div class="right-column">
       <h3></h3>
@@ -74,7 +53,7 @@ export default (state) => html`
         ${state.weather.feelsLike}F.
       </h4>
       <h4>
-        Public holidays are:
+        Public holidays are: ${state.holidays.date}, ${state.holidays.name}
       </h4>
     </div>
   </div>
