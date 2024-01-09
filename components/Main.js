@@ -3,5 +3,5 @@ import * as views from "./views";
 
 export default (state) =>
   html`
-    ${views[state.view](state)}
+    ${typeof views[state.view] === "function" ? views[state.view](state) : ""}
   `;
