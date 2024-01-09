@@ -1,6 +1,6 @@
 import html from "html-literal";
 
-export default (state) => html`
+export default (st) => html`
   ${st.appointments
     ? `<div class="calendar-container">
     <div id="calendar"></div>
