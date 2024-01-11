@@ -1,22 +1,22 @@
 import html from "html-literal";
 
-export default (st) => html`
-  ${st.appointments
+export default (state) => html`
+  ${state.appointments
     ? `<div class="calendar-container">
     <div id="calendar"></div>
   </div>`
     : ""}
-  ${st.event
+  ${state.event
     ? `<div class="appointment-container">
-    <h3>${st.event.title}</h3>
+    <h3>${state.event.title}</h3>
     <div>
-      <em>Start: </em><span>${st.event.start.toLocaleString()}</span>
+      <em>Start: </em><span>${state.event.start.toLocaleString()}</span>
     </div>
     <div>
-      <em>End: </em><span>${st.event.end.toLocaleString()}</span>
+      <em>End: </em><span>${state.event.end.toLocaleString()}</span>
     </div>
     <button id="delete-appointment" data-id="${
-      st.event.id
+      state.event.id
     }">Delete Appointment</button>
   </div>`
     : ""}

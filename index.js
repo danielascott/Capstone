@@ -3,9 +3,9 @@ import * as store from "./store";
 import Navigo from "navigo";
 import { capitalize } from "lodash";
 import axios from "axios";
-import { Calendar as FullCalendar } from "@fullcalendar/core";
 
 const router = new Navigo("/");
+var calendar;
 
 function render(state = store.Home) {
   document.querySelector("#root").innerHTML = `
@@ -55,7 +55,7 @@ function addEventListeners(st) {
       document.querySelector("nav > ul").classList.toggle("hidden--mobile")
     );
 
-  if (st.view === "Schedule") {
+  if (st.view === "Application") {
     document.querySelector("form").addEventListener("submit", (event) => {
       event.preventDefault();
 
@@ -68,7 +68,7 @@ function addEventListeners(st) {
       };
 
       axios
-        .post(`${process.env.API_URL}/appointments`, requestData)
+        .post(`${process.env.MONGODB}/appointments`, requestData)
         .then((response) => {
           // Push the new pizza onto the Pizza state pizzas attribute, so it can be displayed in the pizza list
           store.Appointments.appointments.push(response.data);
@@ -80,7 +80,6 @@ function addEventListeners(st) {
     });
   }
 
-  let calendar;
   if (st.view === "Appointments" && st.appointments) {
     const calendarEl = document.getElementById("calendar");
     calendar = new FullCalendar.Calendar(calendarEl, {
@@ -124,7 +123,7 @@ function addEventListeners(st) {
           };
 
           axios
-            .post(`${process.env.API_URL}/appointments`, requestData)
+            .post(`${process.env.API_URL}s/appointment`, requestData)
             .then((response) => {
               // Push the new pizza onto the Pizza state pizzas attribute, so it can be displayed in the pizza list
               response.data.title = response.data.customer;
@@ -149,7 +148,7 @@ function addEventListeners(st) {
     calendar.render();
   }
 
-  if (st.view === "Appointments" && st.event) {
+  if (st.view === "Appointments" && state.event) {
     const deleteButton = document.getElementById("delete-appointment");
     deleteButton.addEventListener("click", (event) => {
       deleteButton.disabled = true;

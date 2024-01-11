@@ -1,5 +1,5 @@
-const { Router } = require("express");
-const Appointment = require("../models/Application");
+import { Router } from "express";
+import Appointment from "../models/Appointment.js";
 
 const router = Router();
 
@@ -68,4 +68,4 @@ router.put("/:id", (request, response) => {
   );
 });
 
-module.exports = router;
+export default router;

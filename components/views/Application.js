@@ -39,7 +39,7 @@ export default (state) => html`
             />
           </div>
 
-          <input type="submit" name="submit" value="Application" />
+          <input type="submit" name="submit" value="Schedule Appointment" />
         </form>
       </section>
       <h4>
