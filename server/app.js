@@ -1,22 +1,20 @@
 import express from "express";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
+import appointments from "./routers/appointments.js";
 
 // Load environment variables from .env file
 dotenv.config();
 
 const app = express();
 
-mongoose.connect(
-  process.env.MONGODB,
-  {
-      // Configuration options to remove deprecation warnings, just include them to remove clutter
-      useNewUrlParser: true,
-      useUnifiedTopology: true
-  }
-)
+mongoose.connect(process.env.MONGODB, {
+  // Configuration options to remove deprecation warnings, just include them to remove clutter
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
 
-const db = mongoose.connection
+const db = mongoose.connection;
 
 db.on("error", console.error.bind(console, "Connection Error:"));
 db.once(
@@ -60,7 +58,6 @@ app.get("/status", (request, response) => {
   response.status(200).json({ message: "Service healthy" });
 });
 
-
-
+app.use("/appointments", appointments);
 
 app.listen(PORT, () => console.log("Listening on port 4040"));

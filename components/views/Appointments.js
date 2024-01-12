@@ -1,11 +1,10 @@
 import html from "html-literal";
 
 export default (state) => html`
-  ${state.appointments
-    ? `<div class="calendar-container">
+  <div class="calendar-container">
     <div id="calendar"></div>
-  </div>`
-    : ""}
+  </div>
+
   ${state.event
     ? `<div class="appointment-container">
     <h3>${state.event.title}</h3>

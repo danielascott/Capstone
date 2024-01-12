@@ -68,7 +68,7 @@ function addEventListeners(st) {
       };
 
       axios
-        .post(`${process.env.MONGODB}/appointments`, requestData)
+        .post(`${process.env.API_URL}/appointments`, requestData)
         .then((response) => {
           // Push the new pizza onto the Pizza state pizzas attribute, so it can be displayed in the pizza list
           store.Appointments.appointments.push(response.data);
