@@ -9,14 +9,14 @@ body {
   color: #5d0462;
 }
 
-h1 {
+h2 {
   text-align: center;
   color: #5065a8;
 }
 
-#logo {
+.logo {
   text-align: center;
-  height: 300px;
+  height: 200px;
 }
 
 #p {

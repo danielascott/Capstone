@@ -1,9 +1,9 @@
 import html from "html-literal";
-import logo from "/images/CalendarMeets.jpeg";
+import logo from "/images/Calendar.jpeg";
 
 export default (state) => html`
-  <header style="text-align: center;">
-    <h1>${state.header}</h1>
-    <img src="${logo}" alt="Your Image" />
+  <header style="display: grid; align-items: center; justify-content: center;">
+    <img src="${logo}" alt="Logo" class="logo" />
+    <h2>${state.header}</h2>
   </header>
 `;
