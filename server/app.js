@@ -11,7 +11,7 @@ const app = express();
 mongoose.connect(process.env.MONGODB, {
   // Configuration options to remove deprecation warnings, just include them to remove clutter
   useNewUrlParser: true,
-  useUnifiedTopology: true,
+  useUnifiedTopology: true
 });
 
 const db = mongoose.connection;
