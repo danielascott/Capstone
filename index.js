@@ -28,17 +28,17 @@ function handleEventDragResize(info) {
       customer: event.title,
       start: event.start.toJSON(),
       end: event.end.toJSON(),
-      url: event.url
+      url: event.url,
     };
 
     axios
       .put(`${process.env.API_URL}/appointments/${event.id}`, requestData)
-      .then(response => {
+      .then((response) => {
         console.log(
           `Event '${response.data.customer}' (${response.data._id}) has been updated.`
         );
       })
-      .catch(error => {
+      .catch((error) => {
         info.revert();
         console.log("It puked", error);
       });
@@ -56,7 +56,7 @@ function addEventListeners(st) {
     );
 
   if (st.view === "Application") {
-    document.querySelector("form").addEventListener("submit", event => {
+    document.querySelector("form").addEventListener("submit", (event) => {
       event.preventDefault();
 
       const inputList = event.target.elements;
@@ -64,17 +64,17 @@ function addEventListeners(st) {
       const requestData = {
         customer: inputList.customer.value,
         start: new Date(inputList.start.value).toJSON(),
-        end: new Date(inputList.end.value).toJSON()
+        end: new Date(inputList.end.value).toJSON(),
       };
 
       axios
         .post(`${process.env.API_URL}/appointments`, requestData)
-        .then(response => {
+        .then((response) => {
           // Push the new pizza onto the Pizza state pizzas attribute, so it can be displayed in the pizza list
           store.Appointments.appointments.push(response.data);
           router.navigate("/appointments");
         })
-        .catch(error => {
+        .catch((error) => {
           console.log("It puked", error);
         });
     });
@@ -87,14 +87,14 @@ function addEventListeners(st) {
       headerToolbar: {
         left: "prev,next today",
         center: "title",
-        right: "dayGridMonth,timeGridWeek,timeGridDay"
+        right: "dayGridMonth,timeGridWeek,timeGridDay",
       },
       buttonText: {
         today: "Today",
         month: "Month",
         week: "Week",
         day: "Day",
-        list: "List"
+        list: "List",
       },
       height: "100%",
       dayMaxEventRows: true,
@@ -111,7 +111,7 @@ function addEventListeners(st) {
       eventResize: function(info) {
         handleEventDragResize(info);
       },
-      select: info => {
+      select: (info) => {
         const customer = prompt("Please enter a title");
 
         if (customer) {
@@ -119,12 +119,12 @@ function addEventListeners(st) {
             customer: customer,
             start: info.start.toJSON(),
             end: info.end.toJSON(),
-            allDay: info.view.type === "dayGridMonth"
+            allDay: info.view.type === "dayGridMonth",
           };
 
           axios
             .post(`${process.env.API_URL}s/appointment`, requestData)
-            .then(response => {
+            .then((response) => {
               // Push the new pizza onto the Pizza state pizzas attribute, so it can be displayed in the pizza list
               response.data.title = response.data.customer;
               response.data.url = `/appointments/${response.data._id}`;
@@ -136,21 +136,21 @@ function addEventListeners(st) {
               calendar.addEvent(response.data);
               calendar.unselect();
             })
-            .catch(error => {
+            .catch((error) => {
               console.log("It puked", error);
             });
         } else {
           calendar.unselect();
         }
       },
-      events: st.appointments || []
+      events: st.appointments || [],
     });
     calendar.render();
   }
 
   if (st.view === "Appointments" && state.event) {
     const deleteButton = document.getElementById("delete-appointment");
-    deleteButton.addEventListener("click", event => {
+    deleteButton.addEventListener("click", (event) => {
       deleteButton.disabled = true;
       console.log("matsinet-event.target.dataset.id:", event.target.dataset.id);
 
@@ -159,14 +159,14 @@ function addEventListeners(st) {
           .delete(
             `${process.env.API_URL}/appointments/${event.target.dataset.id}`
           )
-          .then(response => {
+          .then((response) => {
             // Push the new pizza onto the Pizza state pizzas attribute, so it can be displayed in the pizza list
             console.log(
               `Event '${response.data.customer}' (${response.data._id}) has been deleted.`
             );
             router.navigate("/appointments");
           })
-          .catch(error => {
+          .catch((error) => {
             console.log("It puked", error);
           });
       } else {
@@ -194,29 +194,29 @@ router.hooks({
           .get(
             `https://api.openweathermap.org/data/2.5/weather?appid=${process.env.OPEN_WEATHER_MAP_API_KEY}&q=floresville`
           )
-          .then(response => {
-            const kelvinToFahrenheit = kelvinTemp =>
+          .then((response) => {
+            const kelvinToFahrenheit = (kelvinTemp) =>
               Math.round((kelvinTemp - 273.15) * (9 / 5) + 32);
 
             store.Application.weather = {
               city: response.data.name,
               temp: kelvinToFahrenheit(response.data.main.temp),
               feelsLike: kelvinToFahrenheit(response.data.main.feels_like),
-              description: response.data.weather[0].main
+              description: response.data.weather[0].main,
             };
           })
-          .catch(err => {
+          .catch((err) => {
             console.log(err);
           });
         await axios
           .get(process.env.PUBLIC_HOLIDAY_API)
-          .then(response => {
+          .then((response) => {
             store.Application.holidays = {
               date: response.data.date,
-              name: response.data.name
+              name: response.data.name,
             };
           })
-          .catch(err => {
+          .catch((err) => {
             console.log(err);
           });
         done();
@@ -226,20 +226,20 @@ router.hooks({
         done();
     }
   },
-  already: params => {
+  already: (params) => {
     const view =
       params && params.data && params.data.view
         ? capitalize(params.data.view)
         : "Home";
 
     render(store[view]);
-  }
+  },
 });
 
 router
   .on({
     "/": () => render(),
-    ":view": params => {
+    ":view": (params) => {
       let view = capitalize(params.data.view);
       if (view in store) {
         render(store[view]);
@@ -247,6 +247,6 @@ router
         render(store.Viewnotfound);
         console.log(`View ${view} not defined`);
       }
-    }
+    },
   })
   .resolve();
