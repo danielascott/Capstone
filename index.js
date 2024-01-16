@@ -68,7 +68,7 @@ function addEventListeners(st) {
       };
 
       axios
-        .post(`${process.env.API_URL}/appointments`, requestData)
+        .post(`${process.env.API_URL}`, requestData)
         .then((response) => {
           // Push the new pizza onto the Pizza state pizzas attribute, so it can be displayed in the pizza list
           store.Appointments.appointments.push(response.data);
@@ -123,7 +123,7 @@ function addEventListeners(st) {
           };
 
           axios
-            .post(`${process.env.API_URL}s/appointment`, requestData)
+            .post(`${process.env.API_URL}`, requestData)
             .then((response) => {
               // Push the new pizza onto the Pizza state pizzas attribute, so it can be displayed in the pizza list
               response.data.title = response.data.customer;
@@ -148,31 +148,36 @@ function addEventListeners(st) {
     calendar.render();
   }
 
-  if (st.view === "Appointments" && state.event) {
+  if (st.view === "Appointments" && st.event) {
     const deleteButton = document.getElementById("delete-appointment");
-    deleteButton.addEventListener("click", (event) => {
-      deleteButton.disabled = true;
-      console.log("matsinet-event.target.dataset.id:", event.target.dataset.id);
+    if (deleteButton) {
+      deleteButton.addEventListener("click", (event) => {
+        deleteButton.disabled = true;
+        console.log(
+          "matsinet-event.target.dataset.id:",
+          event.target.dataset.id
+        );
 
-      if (confirm("Are you sure you want to delete this appointment")) {
-        axios
-          .delete(
-            `${process.env.API_URL}/appointments/${event.target.dataset.id}`
-          )
-          .then((response) => {
-            // Push the new pizza onto the Pizza state pizzas attribute, so it can be displayed in the pizza list
-            console.log(
-              `Event '${response.data.customer}' (${response.data._id}) has been deleted.`
-            );
-            router.navigate("/appointments");
-          })
-          .catch((error) => {
-            console.log("It puked", error);
-          });
-      } else {
-        deleteButton.disabled = false;
-      }
-    });
+        if (confirm("Are you sure you want to delete this appointment")) {
+          axios
+            .delete(
+              `${process.env.API_URL}/appointments/${event.target.dataset.id}`
+            )
+            .then((response) => {
+              // Push the new pizza onto the Pizza state pizzas attribute, so it can be displayed in the pizza list
+              console.log(
+                `Event '${response.data.customer}' (${response.data._id}) has been deleted.`
+              );
+              router.navigate("/appointments");
+            })
+            .catch((error) => {
+              console.log("It puked", error);
+            });
+        } else {
+          deleteButton.disabled = false;
+        }
+      });
+    }
   }
 }
 // add menu toggle to bars icon in nav bar
