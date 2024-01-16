@@ -10,7 +10,7 @@ export default (state) => html`
       <h4>Use this application to schedule appointments</h4>
       <section id="schedule">
         <form id="schedule-form" method="POST" action="">
-          <h2>Create an Appointment</h2>
+          <h3>Create an Appointment</h3>
           <div>
               <input
                 type="text"
@@ -39,7 +39,7 @@ export default (state) => html`
             />
           </div>
 
-          <input type="submit" name="submit" value="Application" />
+          <input type="submit" name="submit" value="Schedule Appointment" />
         </form>
       </section>
       <h4>
