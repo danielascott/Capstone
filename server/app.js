@@ -11,7 +11,7 @@ const app = express();
 mongoose.connect(process.env.MONGODB, {
   // Configuration options to remove deprecation warnings, just include them to remove clutter
   useNewUrlParser: true,
-  useUnifiedTopology: true
+  useUnifiedTopology: true,
 });
 
 const db = mongoose.connection;
@@ -36,6 +36,12 @@ const cors = (req, res, next) => {
     "GET, POST, OPTIONS, PUT, PATCH, DELETE"
   );
   res.setHeader("Access-Control-Allow-Credentials", true);
+
+  // Respond to preflight OPTIONS request with status 200
+  if (req.method === "OPTIONS") {
+    return res.sendStatus(200);
+  }
+
   next();
 };
 
@@ -59,5 +65,11 @@ app.get("/status", (request, response) => {
 });
 
 app.use("/appointments", appointments);
+
+app.post("/", (request, response) => {
+  const body = request.body;
+  body.date = Date.now();
+  response.json(body);
+});
 
 app.listen(PORT, () => console.log("Listening on port 4040"));

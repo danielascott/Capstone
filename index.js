@@ -68,7 +68,7 @@ function addEventListeners(st) {
       };
 
       axios
-        .post(`${process.env.API_URL}`, requestData)
+        .post(`${process.env.API_URL}/appointments`, requestData)
         .then((response) => {
           // Push the new pizza onto the Pizza state pizzas attribute, so it can be displayed in the pizza list
           store.Appointments.appointments.push(response.data);
@@ -191,6 +191,7 @@ router.hooks({
       params && params.data && params.data.view
         ? capitalize(params.data.view)
         : "Home";
+    let id = params && params.data && params.data.id ? params.data.id : "";
 
     // Add a switch case statement to handle multiple routes
     switch (view) {
@@ -226,6 +227,49 @@ router.hooks({
           });
         done();
         break;
+      case "Appointments":
+        if (id === "") {
+          axios
+            .get(`${process.env.API_URL}/appointments`)
+            .then((response) => {
+              const events = response.data.map((event) => {
+                return {
+                  id: event._id,
+                  title: event.customer,
+                  start: new Date(event.start),
+                  end: new Date(event.end),
+                  url: `appointments/${event._id}`,
+                  allDay: event.allDay || false,
+                };
+              });
+              store.Appointments.event = null;
+              store.Appointments.appointments = events;
+              done();
+            })
+            .catch((error) => {
+              console.log("It puked", error);
+            });
+        } else if (id !== "") {
+          console.log(id);
+          axios
+            .get(`${process.env.API_URL}/appointments/${id}`)
+            .then((response) => {
+              store.Appointments.appointments = null;
+              store.Appointments.event = {
+                id: response.data._id,
+                title: response.data.customer,
+                start: new Date(response.data.start),
+                end: new Date(response.data.end),
+                url: `appointment/${response.data._id}`,
+              };
+              done();
+            })
+            .catch((error) => {
+              console.log("It puked", error);
+            });
+        }
+        break;
+
       // Added in Lesson 7.1
       default:
         done();
@@ -244,6 +288,10 @@ router.hooks({
 router
   .on({
     "/": () => render(),
+    ":view/:id": (params) => {
+      let view = capitalize(params.data.view);
+      render(store[view]);
+    },
     ":view": (params) => {
       let view = capitalize(params.data.view);
       if (view in store) {
