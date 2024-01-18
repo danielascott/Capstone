@@ -130,6 +130,7 @@ td {
   height: calc(85vh - 85px);
   margin-left: auto;
   margin-right: auto;
+  color: #5d0462;
 }
 
 .appointment-container {
@@ -141,4 +142,26 @@ td {
   padding: 0.5em;
   background-color: hsl(4deg 99% 50%);
   color: white;
+}
+
+#home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #5d0462;
+}
+
+.features {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 2em;
+}
+
+.feature {
+  width: 30%;
+  margin: 1em;
+  padding: 1em;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
