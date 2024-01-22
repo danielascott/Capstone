@@ -214,18 +214,18 @@ router.hooks({
           .catch((err) => {
             console.log(err);
           });
-        await axios
-          .get(process.env.PUBLIC_HOLIDAY_API)
-          .then((response) => {
-            store.Application.holidays = {
-              date: response.data.date,
-              name: response.data.name,
-            };
-          })
-          .catch((err) => {
-            console.log(err);
-          });
-        done();
+        // await axios
+        //   .get(process.env.PUBLIC_HOLIDAY_API)
+        //   .then((response) => {
+        //     store.Application.holidays = {
+        //       date: response.data.date,
+        //       name: response.data.name,
+        //     };
+        //   })
+        //   .catch((err) => {
+        //     console.log(err);
+        //   });
+        // done();
         break;
       case "Appointments":
         if (id === "") {
