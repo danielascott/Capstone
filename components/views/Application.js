@@ -52,9 +52,6 @@ export default (state) => html`
         Temperature is ${state.weather.temp}F, and it feels like
         ${state.weather.feelsLike}F.
       </h4>
-      <h4>
-        Public holidays are: ${state.holidays.date}, ${state.holidays.name}
-      </h4>
     </div>
   </div>
 `;
